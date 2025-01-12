@@ -2,9 +2,9 @@
 #SE126.04
 #W1D2 Lab Demo: SE116 Review
 #1-9-2025 [W1D2]
-
+#
 #PROGRAM PROMPT: This is a temperature conversion program, it allows a user to enter as many Fahrenheit temps as they'd like and then shows the Celsius conversoion for each. It also counts the number of temps and determines the average of all temps entered. 
-
+#
 #VARIABLE DICTIONARY
 #temp_count     the total number of all temps entered
 #temp_total     the sum total of all temps entered
@@ -12,16 +12,16 @@
 #tempF          the temp in Fahrenheit, entered by the user
 #tempC          the temp in Celsius (tempC = (tempF - 32) * (5 / 9))
 #answer         loop control; value determines if loop repeats, entered by the user
-
+#
 #--------IMPORTS----------------------------------------------
-
+#
 #--------FUNCTIONS--------------------------------------------
 def again(): #<--FUNCTION HEADER
     '''this function asks a user if they'd like to enter another temp, checks the response for validity, and then returns a vaild response back to the main program'''
 
     ans = input("\t\tWould you like to enter another temperature? [y/n]: ").lower()
 
-    #user error tap loop - ensures user provides vaild value
+    #user error trap loop - ensures user provides vaild value
     while ans != "y" and ans != "n":
         print("***INVALID ENTRY!***")
         ans = input("\t\tWould you like to enter another temperature? [y/n]: ").lower()
