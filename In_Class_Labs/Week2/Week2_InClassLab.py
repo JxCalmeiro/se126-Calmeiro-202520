@@ -3,7 +3,7 @@
 #Week 2 - In CLass Lab
 #1-16-2025
 
-#PROGRAM PROMPT: This program that displays all rooms that are over the maximum limit of people and the number of people that have to be notified that they will have to be put on the wait list. After the file is completely processed the program should display the number of records processed and the number of rooms that are over the limit.
+#PROGRAM PROMPT: This program displays all rooms that are over the maximum limit of people and the number of people that have to be notified that they will have to be put on the wait list. After the file is completely processed the program should display the number of records processed and the number of rooms that are over the limit.
 
 #VARIABLE DICTIONARY:
 #total_records          The total amount of records that were processed from the csvfile
