@@ -10,7 +10,7 @@
 #rooms_over             The amount of rooms that are over capacity
 #room                   The name of the room from (record[0]) of csvfile
 #max_cap                The max capacity for the room from (record[1]) of csvfile
-#people                 The number of meeting attending the meeting from (record[2]) of csvfile
+#people                 The number of people attending the meeting from (record[2]) of csvfile
 #people_over            The amount of people over in the room (people - max_cap)
 
 #--------MAIN EXECUTING CODE----------------------------------
