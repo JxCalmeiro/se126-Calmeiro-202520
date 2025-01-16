@@ -31,7 +31,7 @@ with open ("text_files/filehandling.csv") as csvfile:
     file = csv.reader(csvfile)
     
     #displays header
-    print(f"\n{'Type':10} {'Brand':10} {'CPU':10} {'RAM':10} {'1st Disk':10} {'No HDD':10} {'2nd Disk':10} {'OS':10} {'YR'}")
+    print(f"\n{'Type':10} {'Brand':10} {'CPU':10} {'RAM(GB)':10} {'1st Disk':10} {'No HDD':10} {'2nd Disk':10} {'OS':10} {'YR'}")
     print("-------------------------------------------------------------------------------------------------------------------")
 
     #runs loop for each record in file
