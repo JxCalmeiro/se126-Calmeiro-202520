@@ -35,8 +35,6 @@ disk_two = []                      #hard drvie #2 size
 os = []                            #machine operating system
 year = []                          #machine year
 
-#initializing needed variables
-
 #--connected to file-------------------------------------------
 with open ("text_files/filehandling.csv") as csvfile:
     file = csv.reader(csvfile)
@@ -108,4 +106,4 @@ print(f"Cost to replace: ${desktopCost:.2f}")
 print(f"\nLaptops that need to be replaced: {old_laptops}")
 print(f"Cost to replace: ${laptopCost:.2f}")
 print(f"\nTotal Cost to replace Desktops and Laptops: ${totalCost:.2f}")
-print(f"\n~~~ End of Program ~~~")
+print(f"\n~~~ End of Program ~~~\n")
