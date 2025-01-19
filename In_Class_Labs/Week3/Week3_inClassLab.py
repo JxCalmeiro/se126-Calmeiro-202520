@@ -3,7 +3,7 @@
 #Week 3 - In CLass Lab
 #1-27-25
 
-#PROGRAM PROMPT: This program determines the cost of replacing all machines from 2016 or earlier, using a budget of $2,000 per desktop and $1,500 per laptop. Stores data from file to lists, displays the file's information, and generate a report summarizing the total number of machines, total number of desktops and laptops that need to be replaced, and replacement costs of desktops and laptops.
+#PROGRAM PROMPT: This program determines the cost of replacing all machines from 2016 or earlier, using a budget of $2,000 per desktop and $1,500 per laptop. Stores data from file to lists, displays the file's information, and generates a report summarizing the total number of machines, total number of desktops and laptops that need to be replaced, and replacement costs of desktops and laptops.
 
 #VARIABLE DICTIONARY:
 #computer_type              List for Type of computer either 'Desktop' or 'Laptop'
@@ -59,17 +59,8 @@ with open ("text_files/filehandling.csv") as csvfile:
             disk_two.append(record[6])        #used to display the disk size in column 7 for computers with two disks
             os.append(record[7])
             year.append(record[8])
-
-        #displays the results stored in the lists that are pulled from the file in the loop
-    #for index in range(0, len(computer_type)):
-        #print(f"\n{computer_type[index]:11} {brand[index]:10} {cpu[index]:5} {ram[index]:10} {disk_one[index]:10} {str(number_of_drives[index]):10} {disk_two[index]:10} {os[index]:5} {year[index]:5}")
-
-        #counts each computer processed in the file
-
     #exit of loop
 #--disconnected from file--------------------------------------
-
-#process data from lists using a FOR loop *after* you are no longer connected to the file
 
 #displays header
 print(f"\n{'Type':11} {'Brand':10} {'CPU':5} {'RAM(GB)':10} {'1st Disk':10} {'No HDD':10} {'2nd Disk':10} {'OS':5} {'YR':5}")

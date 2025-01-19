@@ -37,7 +37,7 @@ with open ("text_files/voters_202040.csv") as csvfile:
         registered.append(record[2])
         voted.append(record[3])
     #exit of loop
-#--disconnected to file----------------------------------------
+#--disconnected from file----------------------------------------
 
 #displays header
 print(f"\n{'ID Number':12} {'Age':6} {'Registered':14} {'Voted':6}")
@@ -54,15 +54,15 @@ didNotVote = 0
 didVote = 0
 
 for i in range(0, len(age)):
-    if (age[i]) < 18:
+    if (age[i]) < 18:                                               #too young to register
         notEligible += 1
     
     elif (age[i]) >= 18:
-        if registered[i] == "N":
+        if registered[i] == "N":                                    #old enough but not registered
             notRegistered += 1
-        elif registered[i] == "Y" and voted[i] == "N":
+        elif registered[i] == "Y" and voted[i] == "N":              #registered but did not vote
             didNotVote += 1
-        elif registered[i] == "Y" and voted[i] == "Y":
+        elif registered[i] == "Y" and voted[i] == "Y":              #registered and voted
             didVote += 1
 
 #displays final results
