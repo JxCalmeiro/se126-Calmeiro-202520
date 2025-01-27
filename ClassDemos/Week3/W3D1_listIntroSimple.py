@@ -24,12 +24,12 @@ with open("text_files/simple.csv") as csvfile:
         color.append(record[2])              #color field
 #--disconnected from file------------------------------------
 
-print(f"{'NAME':10}    {'NUM'}    {"COLOR"}\n----------------------------")
+print(f"{'':8}{'NAME':10}    {'NUM'}    {'COLOR'}\n------------------------------------")
 
 #process lists for printing
 for index in range(0, len(name)):
     print(f"INDEX{index}: {name[index]:10}    {number[index]:3}    {color[index].title()}")
 
-print("-----------------------------")
+print("------------------------------------")
 print(f"\nTotal Records:  {len(name)}\n")
 
