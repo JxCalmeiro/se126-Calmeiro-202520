@@ -3,9 +3,19 @@
 #Week 3 - In CLass Lab
 #1-30-25
 
-#PROGRAM PROMPT:
+#PROGRAM PROMPT: This program processes student test data from a file by storing it in lists, reprinting the original data, and calculating each student's average score, letter grade, and the class average. It also includes a search feature, allowing users to find students by last name, first name, or letter grade, displaying full details for matching records or alerting if no matches are found.
 
 #VARIABLE DICTIONARY:
+#total_records:         counts the number of records(students) that are processed
+#first_name             a list that holds data of the students first name
+#last_name              a list that holds data of the students last name
+#test1                  a list that holds data of the students test1 numeric grade
+#test2                  a list that holds data of the students test2 numeric grade
+#test3                  a list that holds data of the students test3 numeric grade
+#num_avg                a list that holds data of the students average numeric grade, (test1[i] + test2[i] + test3[i]) / 3
+#let_avg                a list that holds data of the students average letter grade converted from their average numeric grade
+#total_avg              total average of all students processed, total_avg += num_avg[i]
+#class_avg              numeric grade average of the entire class of students processed, total_avg / len(num_avg)
 
 #--IMPORTS---------------------------------------------------------
 import csv
@@ -39,6 +49,7 @@ def search_menu():
 
         choice = input("Enter your choice: ")
 
+        # last name search
         if choice == "1":
             name = input("Enter the last name to search for: ")
             found = False
@@ -49,6 +60,7 @@ def search_menu():
             if not found:
                 print(f"No student found with the last name: {name}")
 
+        # first name search
         elif choice == "2":
             name = input("Enter the first name to search for: ")
             found = False
@@ -58,7 +70,8 @@ def search_menu():
                     found = True
             if not found:
                 print(f"No student found with the first name: {name}")
-            
+
+        # grade letter search    
         elif choice == "3":
             grade = input("Enter the letter grade to search for (A-F): ")
             found = []
@@ -71,6 +84,7 @@ def search_menu():
             else:
                 display_grades(found)
 
+        # program exit
         elif choice == "4":
             print("~~ Exiting the program. ~~\n")
 
@@ -86,7 +100,7 @@ def display_student(index):
     print("-------------------------------------------------------------")
 
 def display_grades(listFound):
-    print("\nStudent Found:")
+    print("\nStudents Found:")
     print(f"{'Firstname':12} {'Lastname':12} {'Test1':6} {'Test2':6} {'Test3':6} {'Average':8} {'Grade':6}")
     print("-------------------------------------------------------------")
     for i in range(0, len(listFound)):
@@ -131,7 +145,7 @@ for i in range(0, len(test1)):
     let_avg.append(letter(a))
 
 # prints headers and displays data
-print(f"{'Firstname':12} {'Lastname':12} {'Test1':6} {'Test2':6} {'Test3':6} {'# Avg':8} {'Avg Grade':6}")
+print(f"\n{'Firstname':12} {'Lastname':12} {'Test1':6} {'Test2':6} {'Test3':6} {'# Avg':8} {'Avg Grade':6}")
 print("------------------------------------------------------------------")
 
 for index in range(0, len(first_name)):
