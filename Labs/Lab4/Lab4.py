@@ -35,7 +35,7 @@ def writeFile():
     #validates user input to write data
     valid_answer = False
     while valid_answer == False:
-        answer = (input("Would you like to save data to file? (Y/N): "))
+        answer = (input("\nWould you like to save data to file? (Y/N): "))
         if answer.upper() == "Y" or answer.upper() =="N":
             valid_answer = True
         else:
@@ -144,7 +144,7 @@ print("-------------------------------------------------------------------------
 # processing through lists for display
 for i in range(0, len(first_name)):
     print(f"{first_name[i]:8} {last_name[i]:10} {email_address[i]:30} {department[i]:23} {phone_extension[i]:3}")
-print("-------------------------------------------------------------------------------\n")
+print("-------------------------------------------------------------------------------")
 
 # calls function to write data to file (westeros.csv)
 writeFile()
