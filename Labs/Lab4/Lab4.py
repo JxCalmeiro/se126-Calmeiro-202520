@@ -30,17 +30,18 @@ import random
 #answer                                     if user input is "Y": program will process while loop in search function, user input is "N": program will exit
 
 #--FUNCTIONS-------------------------------------------------------
-#--writes data to file (westeros.csv)
+#--function asking user if they would like to write data
 def writeFile():
+    #validates user input to write data
     valid_answer = False
     while valid_answer == False:
-        answer = (input("Would you like to save data to file? (Y/N): ")).upper()
-        if answer == "Y" or answer =="N":
+        answer = (input("Would you like to save data to file? (Y/N): "))
+        if answer.upper() == "Y" or answer.upper() =="N":
             valid_answer = True
         else:
             print(f"Your input of '{answer}' was Invalid, Please try again.")
     # writes data to file (westeros.csv)
-    if answer == "Y":
+    if answer.upper() == "Y":
         file = open("text_files/westeros.csv", "w")
         for i in range(0, len(first_name)):
             line = (f"{first_name[i]},{last_name[i]},{email_address[i]},{department[i]},{phone_extension[i]}")
@@ -57,11 +58,11 @@ def writeFile():
         print(f"Research & Development: {researchDevelopment_count}\nMarketing: {marketing_count}\nHuman Resouces: {humanResources_count}\nAccounting: {accounting_count}\nSales: {sales_count}\nAuditing: {auditing_count}")
     else:
         print("\n*** Data was NOT written to file ***")
+    print(f"\n~~ Exiting the Program ~~")
 
 #--MAIN EXECUTING CODE---------------------------------------------
 
 #initialize a record counting variable
-answer = "Y"
 researchDevelopment_count = 0
 marketing_count = 0
 humanResources_count = 0
@@ -148,4 +149,4 @@ print("-------------------------------------------------------------------------
 # calls function to write data to file (westeros.csv)
 writeFile()
 
-print("\n~~ Thank you for using the program, Goodbye! ~~\n")
+print(f"\nThank you for using the program.\nGoodbye!\n")

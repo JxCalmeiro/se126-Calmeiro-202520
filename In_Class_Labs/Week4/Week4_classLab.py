@@ -46,12 +46,12 @@ def search_menu():
     valid_answer = False
 
     while valid_answer == False:
-        answer = (input("\nWould you like to use the search function? (Y/N): ")).upper()
-        if answer == "Y" or answer == "N":
+        answer = (input("\nWould you like to use the search function? (Y/N): "))
+        if answer.upper() == "Y" or answer.upper() == "N":
             valid_answer = True
         else:
             print(f"Your input of '{answer}' was Invalid, Please try again.")
-    if answer == "Y":
+    if answer.upper() == "Y":
         while choice != "4":
             print("\nSearch Menu:")
             print("1. search by LAST NAME")
@@ -98,13 +98,13 @@ def search_menu():
 
             # program exit
             elif choice == "4":
-                print("~~ Exiting the program. ~~\n")
+                print(f"\n~~ Exiting the program. ~~")
 
             else:
                 print(f"Your input of '{choice}' was Invalid, Please try again.")
-    elif answer == "N":
-        print(f"~~ Exiting the Program ~~")
-    print("\n~~ Thank you for using the program, Goodbye! ~~\n")
+    else:
+        print(f"\n~~ Exiting the Program ~~")
+    print(f"\nThank you for using the program.\nGoodbye!\n")
 
 #-----DISPLAYS DATA FROM SEARCH MENU FUNCTION--------------------
 def display_student(index):
