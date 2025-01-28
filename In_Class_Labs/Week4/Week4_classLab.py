@@ -1,21 +1,24 @@
 #Tony Calmeiro
 #SE126.04
-#Week 3 - In CLass Lab
+#Week 4 - In CLass Lab
 #1-30-25
 
 #PROGRAM PROMPT: This program processes student test data from a file by storing it in lists, reprinting the original data, and calculating each student's average score, letter grade, and the class average. It also includes a search feature, allowing users to find students by last name, first name, or letter grade, displaying full details for matching records or alerting if no matches are found.
 
 #VARIABLE DICTIONARY:
-#total_records:         counts the number of records(students) that are processed
-#first_name             a list that holds data of the students first name
-#last_name              a list that holds data of the students last name
-#test1                  a list that holds data of the students test1 numeric grade
-#test2                  a list that holds data of the students test2 numeric grade
-#test3                  a list that holds data of the students test3 numeric grade
-#num_avg                a list that holds data of the students average numeric grade, (test1[i] + test2[i] + test3[i]) / 3
-#let_avg                a list that holds data of the students average letter grade converted from their average numeric grade
-#total_avg              total average of all students processed, total_avg += num_avg[i]
-#class_avg              numeric grade average of the entire class of students processed, total_avg / len(num_avg)
+#total_records:             counts the number of records(students) that are processed
+#first_name                 a list that holds data of the students first name
+#last_name                  a list that holds data of the students last name
+#test1                      a list that holds data of the students test1 numeric grade
+#test2                      a list that holds data of the students test2 numeric grade
+#test3                      a list that holds data of the students test3 numeric grade
+#num_avg                    a list that holds data of the students average numeric grade, (test1[i] + test2[i] + test3[i]) / 3
+#let_avg                    a list that holds data of the students average letter grade converted from their average numeric grade
+#total_avg                  total average of all students processed, total_avg += num_avg[i]
+#class_avg                  numeric grade average of the entire class of students processed, total_avg / len(num_avg)           
+#choice = ""                users input of choice will process loop for choice entered(1, 2, 3, 4), if invaild entry, program will prompt user to enter input again
+#valid_answer = False       variable is set to False, If user inputs "Y" or "N": sets variable to True and they will continue through loop, if invaild entry, program will prompt user to enter input again
+#answer                     if user input is "Y": program will process while loop in search function, user input is "N": program will exit
 
 #--IMPORTS---------------------------------------------------------
 import csv
@@ -39,57 +42,69 @@ def letter(num):
 
 #-----SEARCH MENU--------------------------------------------------
 def search_menu():
-    choice = 0
-    while choice != "4":
-        print("\nSearch Menu:")
-        print("1. search by LAST NAME")
-        print("2. search by FIRST NAME")
-        print("3. search by LETTER GRADE")
-        print("4. Exit")
+    choice = ""
+    valid_answer = False
 
-        choice = input("Enter your choice: ")
-
-        # last name search
-        if choice == "1":
-            name = input("Enter the last name to search for: ")
-            found = False
-            for i in range(0, len(last_name)):
-                if name.lower() == last_name[i].lower():
-                    display_student(i)
-                    found = True
-            if not found:
-                print(f"No student found with the last name: {name}")
-
-        # first name search
-        elif choice == "2":
-            name = input("Enter the first name to search for: ")
-            found = False
-            for i in range(0, len(first_name)):
-                if name.lower() == first_name[i].lower():
-                    display_student(i)
-                    found = True
-            if not found:
-                print(f"No student found with the first name: {name}")
-
-        # grade letter search    
-        elif choice == "3":
-            grade = input("Enter the letter grade to search for (A-F): ")
-            found = []
-            for i in range(0, len(let_avg)):
-                if grade.upper() == let_avg[i].upper():
-                    #display_student(i)
-                    found.append(i)
-            if not found:
-                print(f"No students found with the letter grade: {grade}")
-            else:
-                display_grades(found)
-
-        # program exit
-        elif choice == "4":
-            print("~~ Exiting the program. ~~\n")
-
+    while valid_answer == False:
+        answer = (input("\nWould you like to use the search function? (Y/N): ")).upper()
+        if answer == "Y" or answer == "N":
+            valid_answer = True
         else:
-            print("Invalid choice! Please try again.")
+            print(f"Your input of '{answer}' was Invalid, Please try again.")
+    if answer == "Y":
+        while choice != "4":
+            print("\nSearch Menu:")
+            print("1. search by LAST NAME")
+            print("2. search by FIRST NAME")
+            print("3. search by LETTER GRADE")
+            print("4. Exit")
+
+            choice = input("\nEnter your choice: ")
+
+            # last name search
+            if choice == "1":
+                name = input("Enter the last name to search for: ")
+                found = False
+                for i in range(0, len(last_name)):
+                    if name.lower() == last_name[i].lower():
+                        display_student(i)
+                        found = True
+                if not found:
+                    print(f"No student found with the last name: {name}")
+
+            # first name search
+            elif choice == "2":
+                name = input("Enter the first name to search for: ")
+                found = False
+                for i in range(0, len(first_name)):
+                    if name.lower() == first_name[i].lower():
+                        display_student(i)
+                        found = True
+                if not found:
+                    print(f"No student found with the first name: {name}")
+
+            # grade letter search    
+            elif choice == "3":
+                grade = input("Enter the letter grade to search for (A-F): ")
+                found = []
+                for i in range(0, len(let_avg)):
+                    if grade.upper() == let_avg[i].upper():
+                        #display_student(i)
+                        found.append(i)
+                if not found:
+                    print(f"No students found with the letter grade: {grade}")
+                else:
+                    display_grades(found)
+
+            # program exit
+            elif choice == "4":
+                print("~~ Exiting the program. ~~\n")
+
+            else:
+                print(f"Your input of '{choice}' was Invalid, Please try again.")
+    elif answer == "N":
+        print(f"~~ Exiting the Program ~~")
+    print("\n~~ Thank you for using the program, Goodbye! ~~\n")
 
 #-----DISPLAYS DATA FROM SEARCH MENU FUNCTION--------------------
 def display_student(index):
@@ -164,4 +179,3 @@ print(f"\nTotal Students: {total_records}\nCurrent Class Average: {class_avg:.1f
 
 #--CALLS SEARCH MENU------------------------------------------------
 search_menu()
-
