@@ -10,7 +10,6 @@ import csv
 import random
 
 #VARIABLE DICTIONARY:
-#answer = "Y"                               when user enters "Y" in prompt, the for loop within the writeFile() function will process.
 #researchDevelopment_count = 0              counts the number of employees in the Research & Deveolpment Department.
 #marketing_count = 0                        counts the number of employees in the Marketing Department.
 #humanResources_count = 0                   counts the number of employees in the Human Resources Department.
