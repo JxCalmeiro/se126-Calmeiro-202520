@@ -55,6 +55,7 @@ def writeFile():
         print("\nDepartment Employee Totals:")
         print("---------------------------")
         print(f"Research & Development: {researchDevelopment_count}\nMarketing: {marketing_count}\nHuman Resouces: {humanResources_count}\nAccounting: {accounting_count}\nSales: {sales_count}\nAuditing: {auditing_count}")
+    # does NOT write data to file    
     else:
         print("\n*** Data was NOT written to file ***")
     print(f"\n~~ Exiting the Program ~~")
@@ -84,19 +85,19 @@ with open("text_files/got_emails.csv") as csvfile:
     file = csv.reader(csvfile)
 
     for rec in file:
-        first_name.append(rec[0])
-        last_name.append(rec[1])
-        age.append(rec[2])
-        screen_name.append(rec[3])
-        house_allegiance.append(rec[4])
+        first_name.append(rec[0])               #first name field
+        last_name.append(rec[1])                #last name field
+        age.append(rec[2])                      #age field
+        screen_name.append(rec[3])              #screen name field
+        house_allegiance.append(rec[4])         #house allegiance field
 #--disconnected to file--------------------------------------------
 
-# generate email addresses
+# generates email addresses
 for i in range(0, len(first_name)):
     email = (f"{screen_name[i]}@westeros.net")
     email_address.append(email)
 
-# assign departments based on house allegiance
+# assigns departments based on house allegiance
 for i in range(0, len(first_name)):
     if house_allegiance[i] == "House Stark":
         department.append("Research & Deveolpment")
@@ -119,7 +120,7 @@ for i in range(0, len(first_name)):
     else:
         department.append("Unknown")
 
-# generate phone extensions
+# generates random phone extensions based on department
 for i in range(0, len(first_name)):
     if department[i] == "Research & Deveolpment":
         phone_extension.append(random.randint(100, 199))
