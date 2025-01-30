@@ -48,6 +48,7 @@ def writeFile():
                 file.write(line + "\n")
             else:
                 file.write(line)
+                file.close()
         print("\n*** Data has sucessfully been written to file: 'westeros.csv' ***")
         # prints total number of employees written to the file
         print(f"\nThere was a total of {len(first_name)} employees saved to the file.")
