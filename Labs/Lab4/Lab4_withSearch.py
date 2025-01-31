@@ -29,9 +29,9 @@ import random
 #answer                                     if user input is "Y": program will process while loop in search function, user input is "N": program will exit
 
 #--FUNCTIONS-------------------------------------------------------
-#--function asking user if they would like to write data
+#--write data function--
 def writeFile():
-    #validates user input to write data
+    # validates user input to write data
     valid_answer = False
     while valid_answer == False:
         answer = (input("\nWould you like to save data to file? (Y/N): "))
@@ -59,7 +59,107 @@ def writeFile():
     # does NOT write data to file    
     else:
         print("\n*** Data was NOT written to file ***")
-    print(f"\n~~ Exiting the Program ~~")
+    
+#--search menu function--
+def search_menu():
+    choice = -1
+    valid_answer = False
+
+    # validates user input to write data
+    while valid_answer == False:
+        answer = (input("\nWould you like to use the search function? (Y/N): "))
+        if answer.upper() == "Y" or answer.upper() == "N":
+            valid_answer = True
+        else:
+            print(f"Your input of '{answer}' was Invalid, Please try again.")
+    # prints search menu
+    if answer.upper() == "Y":
+        while choice != "5":
+            print("\nSearch Menu:")
+            print("1. search by FIRST NAME")
+            print("2. search by PHONE EXT")
+            print("3. search by LAST NAME")
+            print("4. search by DEPARTMENT")
+            print("5. Exit")
+
+            choice = input("\nEnter your choice: ")
+
+            # input # 1 - first name search
+            if choice == "1":
+                search = input("Enter the first name to search for: ")
+                found = False
+                for i in range(0, len(first_name)):
+                    if search.lower() == first_name[i].lower():
+                        single_search(i)
+                        found = True
+                if not found:
+                    print(f"No employee found with the first name: {search}")
+
+            # input # 2 - phone ext search
+            elif choice == "2":
+                search_input = input("Enter the phone ext to search for: ")
+                if search_input.isdigit():      #ensures user inputs a numeric phone ext
+                    search = int(search_input)
+                    found = False
+                    for i in range(0, len(phone_extension)):
+                        if search == phone_extension[i]:
+                            single_search(i)
+                            found = True
+                    if not found:
+                        print(f"No employee found with the phone ext: {search}")
+                else:
+                    print(f"Your input of '{search_input}' was invalid, Please enter a numeric phone ext.")
+            
+            # input # 3 - last name search
+            elif choice == "3":
+                search = input("Enter the last name to search for: ")
+                found = []
+                for i in range(0, len(last_name)):
+                    if search.lower() == last_name[i].lower():
+                        found.append(i)
+                if not found:
+                    print(f"No employee found with the last name: {search}")
+                else:
+                    multi_search(found)
+
+            # input # 4 - department search
+            elif choice == "4":
+                search = input("Enter the last name to search for: ")
+                found = []
+                for i in range(0, len(department)):
+                    if search.lower() == department[i].lower():
+                        found.append(i)
+                if not found:
+                    print(f"No employee found in department: {search}")
+                else:
+                    multi_search(found)
+            
+            # input # 5 - program exit
+            elif choice == "5":
+                print(f"\n~~ Exiting the program. ~~")
+            
+            else:
+                print(f"Your input of '{choice}' was Invalid, Please try again.")
+    else:
+        print(f"\n~~ Exiting the Program ~~")
+    print(f"\nThank you for using the program.\nGoodbye!\n")
+
+#--displays data from single search menu option (1 & 2)--
+def single_search(index):
+    print("\nEmployee Found:")
+    print(f"\n{'FIRST':8} {'LAST':10} {'EMAIL':30} {'DEPARTMENT':23} {'EXT':3}")
+    print("-------------------------------------------------------------------------------")
+    print(f"{first_name[index]:8} {last_name[index]:10} {email_address[index]:30} {department[index]:23} {phone_extension[index]:3}")
+    print("-------------------------------------------------------------------------------")
+
+#--displays data from multi search menu option (3 & 4)--
+def multi_search(listFound):
+    print("\nEmployees Found:")
+    print(f"\n{'FIRST':8} {'LAST':10} {'EMAIL':30} {'DEPARTMENT':23} {'EXT':3}")
+    print("-------------------------------------------------------------------------------")
+    for i in range(0, len(listFound)):
+        print(f"{first_name[listFound[i]]:8} {last_name[listFound[i]]:10} {email_address[listFound[i]]:30} {department[listFound[i]]:23} {phone_extension[listFound[i]]:3}")
+    print("-------------------------------------------------------------------------------")
 
 #--MAIN EXECUTING CODE---------------------------------------------
 
@@ -147,7 +247,8 @@ for i in range(0, len(first_name)):
     print(f"{first_name[i]:8} {last_name[i]:10} {email_address[i]:30} {department[i]:23} {phone_extension[i]:3}")
 print("-------------------------------------------------------------------------------")
 
-# calls function to write data to file (westeros.csv)
+# calls writeFile function to write data to file (westeros.csv)
 writeFile()
 
-print(f"\nThank you for using the program.\nGoodbye!\n")
+# calls search_menu function to allow user to search data
+search_menu()
