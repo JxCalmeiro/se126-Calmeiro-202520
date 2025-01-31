@@ -3,7 +3,7 @@
 #Lab 4 w/ Search
 #2-3-25
 
-#PROGRAM PROMPT: This program processes employee data from a file to assign unique email addresses, departments, and phone extensions based on their House Allegiance. It stores data in parallel lists, displays employee details in a formatted table, and generates a report summarizing total employees and departmental counts. The updated data is saved to a new file.
+#PROGRAM PROMPT: This program processes employee data from a file to assign unique email addresses, departments, and phone extensions based on their House Allegiance. It stores data in parallel lists, displays employee details in a formatted table, and generates a report summarizing total employees and departmental counts. The updated data is saved to a new file. The user also has an option to search for employees by (first name, phone ext, last name, and department).
 
 #--IMPORTS---------------------------------------------------------
 import csv
