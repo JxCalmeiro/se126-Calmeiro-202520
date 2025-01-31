@@ -124,7 +124,7 @@ def search_menu():
 
             # input # 4 - department search
             elif choice == "4":
-                search = input("Enter the last name to search for: ")
+                search = input("Enter the department to search for: ")
                 found = []
                 for i in range(0, len(department)):
                     if search.lower() == department[i].lower():
