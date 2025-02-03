@@ -79,6 +79,6 @@ else:
 file = open("text_files/targs.csv", "w")
 
 for i in range(0, len(dragons)):
-    file.write(f"{dragons[i]},{riders[i]}")
+    file.write(f"{dragons[i]},{riders[i]}\n")
 file.close()
     
