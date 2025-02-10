@@ -39,9 +39,9 @@ def writeFile():
             valid_answer = True
         else:
             print(f"Your input of '{answer}' was Invalid, Please try again.")
-    # writes data to file (westeros.csv)
+    # writes data to file (westeros_old.csv)
     if answer.upper() == "Y":
-        file = open("text_files/westeros.csv", "w")
+        file = open("text_files/westeros_old.csv", "w")
         for i in range(0, len(first_name)):
             line = (f"{first_name[i]},{last_name[i]},{email_address[i]},{department[i]},{phone_extension[i]}")
             if i < len(first_name) - 1:
@@ -49,7 +49,7 @@ def writeFile():
             else:
                 file.write(line)
                 file.close()
-        print("\n*** Data has sucessfully been written to file: 'westeros.csv' ***")
+        print("\n*** Data has sucessfully been written to file: 'westeros_old.csv' ***")
         # prints total number of employees written to the file
         print(f"\nThere was a total of {len(first_name)} employees saved to the file.")
         # prints total number of employees in each department
@@ -201,7 +201,7 @@ for i in range(0, len(first_name)):
 # assigns departments based on house allegiance
 for i in range(0, len(first_name)):
     if house_allegiance[i] == "House Stark":
-        department.append("Research & Deveolpment")
+        department.append("Research & Development")
         researchDevelopment_count +=1
     elif house_allegiance[i] == "House Targaryen":
         department.append("Marketing")
@@ -223,7 +223,7 @@ for i in range(0, len(first_name)):
 
 # generates random phone extensions based on department
 for i in range(0, len(first_name)):
-    if department[i] == "Research & Deveolpment":
+    if department[i] == "Research & Development":
         phone_extension.append(random.randint(100, 199))
     elif department[i] == "Marketing":
         phone_extension.append(random.randint(200, 299))
