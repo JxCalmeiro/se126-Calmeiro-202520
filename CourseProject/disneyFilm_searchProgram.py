@@ -156,6 +156,7 @@ while ans == "y":
     
     # input #2 - Search by Film Title
     elif search_type == "2":
+        rankSort()
         search = input("\nEnter the Title or Title key word for the Film to search: ")
         seqSearch2(search, title)
 
@@ -212,7 +213,7 @@ while ans == "y":
     
     # input #6 - Search by Production Studio
     elif search_type == "6":
-        print(f"\nChoices:")
+        print(f"\nFilm Production Studio Choices:")
         studioList()
         search = input("\nEnter the Film Production Studio to search: ")
         rankSort()
@@ -227,7 +228,7 @@ while ans == "y":
 
     # input #7 - Search by Film Genre
     elif search_type == "7":
-        print(f"\nChoices:")
+        print(f"\nFilm Genre Choices:")
         genreList()
         search = input("\nEnter the Film Genre to search: ")
         rankSort()

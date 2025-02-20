@@ -42,10 +42,12 @@ seats_filled = 0
 
 while reserve_more == "Y" and seats_filled < 28:
     # gets user input for row
-    row = int(input("Enter which row you'd like to sit in [1-7]: "))
-    while row < 1 or row > 7:
-        print(f"\nYour input of '{row}' is Invalid! Please choose a row between 1 and 7.")
-        row = int(input("Enter which row you'd like to sit in [1-7]: "))
+    row_input = (input("Enter which row you'd like to sit in [1-7]: "))
+    while not row_input.isdigit() or int(row_input) < 1 or int(row_input) > 7:
+        print(f"\nYour input of '{row_input}' is Invalid! Please choose a row between 1 and 7.")
+        row_input = (input("Enter which row you'd like to sit in [1-7]: "))
+    
+    row = int(row_input)
 
     # gets user input for seat
     seat = input("Enter which seat you'd like to sit in [A/B/C/D]: ").upper()
