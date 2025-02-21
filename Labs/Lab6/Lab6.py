@@ -1,7 +1,7 @@
 #Tony Calmeiro
 #SE126.04
 #Lab 6
-#2-xx-25
+#2-24-25
 
 #PROGRAM PROMPT: This Program assigns seats in a small airplane with 7 rows (1-7) and 4 seats per row (A-D). It displays the seat layout, marking assigned seats with an 'X'. Users can reserve seats by typing their desired seat. If a seat is already taken, the program will notify the user and prompt them to choose another.
 
