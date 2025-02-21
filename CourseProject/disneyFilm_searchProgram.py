@@ -1,6 +1,6 @@
 #Tony Calmeiro
 #SE126.04
-#Course Project - Top 200 Disney Grossng Films Search Program
+#Course Project - Top 200 Disney Grossing Films Search Program
 #3-xx-25
 
 #PROGRAM PROMPT:
@@ -63,15 +63,12 @@ def seqSearch2(search, listName):
         if search.lower() in listName[i].lower():
             found.append(i)
 
-#prints choice list for search option 6
-def studioList():
-    for i in range(0, len(studioChoices)):
-        print(f"{studioChoices[i]}")
+#prints choice list for search option 6 & 7
+def displayChoices(choices):
+    for i in range(0, len(choices)):
+        print(f"{choices[i]}")
 
-#prints choice list for search option 7
-def genreList():
-    for i in range(0, len(genreChoices)):
-        print(f"{genreChoices[i]}")
+
 
 
 #--created lists-----------------------------------------------------
@@ -176,7 +173,11 @@ while ans == "y":
 
     # input #4 - Search by Film Rank
     elif search_type == "4":
-        search = int(input("\nEnter the Film Rank to search: "))
+        search_input = (input("\nEnter the Film Rank to search: "))
+        while not search_input.isdigit():
+            print(f"\nYour input of '{search_input}' is Invalid! Please choose a numeric rank between 1 - 200.")
+            search_input = (input("\nEnter the Film Rank to search: "))
+        search = int(search_input)
         rankSort()
         
         #BINARY SEARCH:
@@ -201,7 +202,11 @@ while ans == "y":
         
     # input #5 - Search All Films by Year
     elif search_type == "5":
-        search = int(input("\nEnter the Year to search: "))
+        search_input = (input("\nEnter the Year to search: "))
+        while not search_input.isdigit():
+            print(f"\nYour input of '{search_input}' is Invalid! Please choose a numeric Year.")
+            search_input = (input("\nEnter the Year to search: "))
+        search = int(search_input)
         rankSort()
         for i in range(0, len(year)):
             if search == year[i]:
@@ -216,7 +221,7 @@ while ans == "y":
     # input #6 - Search by Production Studio
     elif search_type == "6":
         print(f"\nFilm Production Studio Choices:")
-        studioList()
+        displayChoices(studioChoices)
         search = input("\nEnter the Film Production Studio to search: ")
         rankSort()
         seqSearch1(search, prod_studio)
@@ -231,7 +236,7 @@ while ans == "y":
     # input #7 - Search by Film Genre
     elif search_type == "7":
         print(f"\nFilm Genre Choices:")
-        genreList()
+        displayChoices(genreChoices)
         search = input("\nEnter the Film Genre to search: ")
         rankSort()
         seqSearch1(search, genre)
@@ -244,7 +249,7 @@ while ans == "y":
 
     
     # input #8 - Program Exit
-    elif search_type == "8":
+    else:
         print(f"\n~~ Exiting the program. ~~")
         ans = "N"
 
