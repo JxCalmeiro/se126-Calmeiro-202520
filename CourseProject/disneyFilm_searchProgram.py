@@ -72,6 +72,8 @@ def studioList():
 def genreList():
     for i in range(0, len(genreChoices)):
         print(f"{genreChoices[i]}")
+
+
 #--created lists-----------------------------------------------------
 #Static Lists
 studioChoices = ["Disney-Pixar", "Disneytoon Studios", "Lucasfilm", "Marvel Studios", "Walt Disney Animation Studios", "Walt Disney Pictures"]
