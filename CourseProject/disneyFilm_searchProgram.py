@@ -68,13 +68,14 @@ def displayChoices(choices):
     for i in range(0, len(choices)):
         print(f"{choices[i]}")
 
-
-
-
 #--created lists-----------------------------------------------------
+
 #Static Lists
-studioChoices = ["Disney-Pixar", "Disneytoon Studios", "Lucasfilm", "Marvel Studios", "Walt Disney Animation Studios", "Walt Disney Pictures"]
-genreChoices = ["Action", "Adventure", "Comedy", "Drama", "Musical", "Romantic Comedy", "Western"]
+choices = [
+    ["Disney-Pixar", "Disneytoon Studios", "Lucasfilm", "Marvel Studios", "Walt Disney Animation Studios", "Walt Disney Pictures"],
+    ["Action", "Adventure", "Comedy", "Drama", "Musical", "Romantic Comedy", "Western"]
+]
+
 # Appended Lists
 rank = []
 year = []
@@ -221,7 +222,7 @@ while ans == "y":
     # input #6 - Search by Production Studio
     elif search_type == "6":
         print(f"\nFilm Production Studio Choices:")
-        displayChoices(studioChoices)
+        displayChoices(choices[0])
         search = input("\nEnter the Film Production Studio to search: ")
         rankSort()
         seqSearch1(search, prod_studio)
@@ -236,7 +237,7 @@ while ans == "y":
     # input #7 - Search by Film Genre
     elif search_type == "7":
         print(f"\nFilm Genre Choices:")
-        displayChoices(genreChoices)
+        displayChoices(choices[1])
         search = input("\nEnter the Film Genre to search: ")
         rankSort()
         seqSearch1(search, genre)
