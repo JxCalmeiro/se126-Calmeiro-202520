@@ -18,6 +18,9 @@ def writeFile():
 # empty dictionary
 pythonDict = {}
 
+# empty 2D list
+dict2Dlist = []
+
 # menu options list
 menu_options = [
     "1. Show all words",
@@ -30,30 +33,35 @@ menu_options = [
 #--connected to file-----------------------------------------------
 with open("text_files/words.csv") as csvfile:
     file = csv.reader(csvfile)
-
-    for key in file:
-        word = key[0].lower()
-        definition = key[1]
-        pythonDict[word] = definition
-
+    for rec in file:
+        pythonDict.update({rec[0] : rec[1]})
+        dict2Dlist.append(rec)
 #--disconnected to file--------------------------------------------
 
+for i in range(len(dict2Dlist)):
+    for x in range(len(dict2Dlist[i])):
+        print(dict2Dlist[i][x])
 
+'''
 print(f"{'Word':23} {"Definition"}")
-print("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+print("-" * 185)
 for key in pythonDict:
     #for every key stored to the yourCar dictionary
     print(f"{key.upper():20}\t{pythonDict[key]}")
+print("-" * 185)
+'''
 
-print("-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------")
+
 
 
 # menu option loop
 user_choice = -1
 
 while user_choice != "4":
-    print("\nMy Programming Dictionary Menu")
-    print("------------------------------")
+    print()
+    print("-" * 30)
+    print("My Programming Dictionary Menu")
+    print("-" *30)
     
     for option in menu_options:
         print(option)
@@ -61,16 +69,27 @@ while user_choice != "4":
     user_choice = input("\nPlease choose an option: ")
 
     if user_choice == "1":
-        print("All words in the dictionary:")
-        for word in pythonDict:
-            print(word)
+        print("\nAll words in the dictionary:")
+        print("-" * 28)
+        for key in pythonDict:
+            print(key.upper())
+        print("-" * 28)
 
     elif user_choice == "2":
-        word = input("Enter the word you want to search for: ")
-        if word in pythonDict:
-            print(f"Definition of '{word}': {pythonDict[word]}")
+        search = input("Enter the word you want to search for: ")
+        found = 0
+        for key in pythonDict:
+            if search.lower() == key.lower():
+                found = key
+        if found != 0:
+            print(f"We found your search for {search}, here is the info: \n")
+            print(f"{'Word':23} {"Definition"}")
+            print("-" * 185)
+            print(f"{found.upper():20}\t{pythonDict[found]}")
+            print("-" * 185)
         else:
-            print(f"'{word}' is not in the dictionary.")
+            print(f"We could not find your search for '{search}' ")
+
 
     elif user_choice == "3":
         word = input("Enter the word you want to add: ")
@@ -78,17 +97,19 @@ while user_choice != "4":
         if word in pythonDict:
             print(f"'{word}' already exists in the dictionary.")
         else:
-            pythonDict[word] = definition
+            pythonDict.update({word: definition})
             print(f"'{word}' has been added to the dictionary.")
 
     elif user_choice == "3.5":
-        print("Words in alphabetical order:")
+        print("\nWords in alphabetical order:")
+        print("-" * 28)
         for word in sorted(pythonDict.keys()):
-            print(word)
+            print(word.upper())
+        print("-" * 28)
             
     elif user_choice == "4":
             writeFile()
-            print("Changes have been saved.\n~~ Exiting Program ~~")
+            print("\nChanges have been saved to 'updated_words.csv'\n~~ Exiting Program ~~")
     else:
         print("Invalid Choice. Please try again")
 
