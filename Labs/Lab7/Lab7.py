@@ -13,6 +13,11 @@ def writeFile():
     file = open("text_files/updated_words.csv", "w")
     for key in pythonDict:
         file.write(f"{key},{pythonDict[key]}\n")
+
+def swap(i, listName):
+    temp = listName[i]
+    listName[i] = listName[i + 1]
+    listName[i + 1] = temp
 #--MAIN EXECUTING CODE---------------------------------------------
 
 # empty dictionary
