@@ -1,6 +1,6 @@
 #Tony Calmeiro
 #SE126.04
-#Lab 6
+#Lab 7
 #3-3-25
 
 #PROGRAM PROMPT: This program lets users interact with a programming dictionary. Users can search for words, add new ones, view all words, exit via a menu, and saves updates to a new 'updated_words.csv' file
