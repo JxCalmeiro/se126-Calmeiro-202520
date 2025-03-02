@@ -44,11 +44,11 @@ dict2Dlist = []
 
 # --menu options list--
 menu_options = [
-    "1. Show all words",
-    "2. Search for a word",
-    "3. Add a word",
+    "1.   Show all words",
+    "2.   Search for a word",
+    "3.   Add a word",
     "3.5. Show words in alphabetical order",
-    "4. EXIT"
+    "4.   EXIT"
 ]
 
 #--connected to file-----------------------------------------------
