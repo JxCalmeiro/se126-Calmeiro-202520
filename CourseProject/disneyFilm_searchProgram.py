@@ -1,9 +1,9 @@
 #Tony Calmeiro
 #SE126.04
 #Course Project - Top 200 Disney Grossing Films Search Program
-#3-xx-25
+#3-13-25
 
-#PROGRAM PROMPT:
+#PROGRAM PROMPT: This program allows users to access a CSV file containing detailed information about Disney's top 200 grossing films. Users can navigate through a search menu to explore the full list of films alphabetically or by rank, and search for films by title, rank, year, production studio, or genre.
 
 #--IMPORTS---------------------------------------------------------
 import csv
